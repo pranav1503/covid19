@@ -192,6 +192,9 @@ p.lead {
   color: rgba(85, 85, 85, 0.95);
 }
 @media only screen and (max-width: 1200px) {
+  .total-stats{
+    visibility: hidden;
+  }
   p.lead {
     font-size: 2.2rem;
   }
@@ -2945,6 +2948,9 @@ html.no-csstransitions .home-content__main {
  * stats
  * ------------------------------------------------------------------- */
 @media only screen and (max-width: 1200px) {
+  .total-stats{
+    visibility: hidden;
+  }
   .stats {
     max-width: 900px;
   }

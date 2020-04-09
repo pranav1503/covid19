@@ -1,7 +1,21 @@
+<?php include 'db.php';?>
+<?php
+$sql = "SELECT * FROM total where id=1";
+$result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              $total = $row['total'];
+              $active = $row['active'];
+              $recovered = $row['recovered'];
+              $deceased = $row['deaths'];
+          }
+      }
+ ?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
@@ -28,6 +42,32 @@
     ================================================== -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style media="screen">
+    .rowmy::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+        [class*="colmy-"] {
+        float: left;
+        padding: 0px;
+        /* border: 1px solid red; */
+        }
+
+        .colmy-1 {width: 8.33%;}
+        .colmy-2 {width: 16.66%;}
+        .colmy-3 {width: 25%;}
+        .colmy-4 {width: 33.33%;}
+        .colmy-5 {width: 41.66%;}
+        .colmy-6 {width: 50%;}
+        .colmy-7 {width: 58.33%;}
+        .colmy-8 {width: 66.66%;}
+        .colmy-9 {width: 75%;}
+        .colmy-10 {width: 83.33%;}
+        .colmy-11 {width: 91.66%;}
+        .colmy-12 {width: 100%;}
+    </style>
 
 </head>
 
@@ -104,28 +144,38 @@
                   India
                 </h1>
 
-                <p>
+                <!-- <p>
                 Always at your service
-                </p>
+                </p> -->
+                <div class="rowmy">
+                  <div class="colmy-6">
+                    <h3 style="color:white;">Total: <br><span style="color:red;" class="count"><?php echo $total; ?></span></h3>
+                  </div>
+                  <div class="colmy-6">
+                    <h3 style="color:white;">Active:<br> <span style="color:#4287f5;" class="count"><?php echo $active; ?></span></h3>
+                  </div>
+                  <div class="colmy-6">
+                    <h3 style="color:white;">Recovered:<br> <span style="color:#3bff38;" class="count"><?php echo $recovered; ?></span></h3>
+                  </div>
+                  <div class="colmy-6">
+                    <h3 style="color:white;">Deceased:<br> <span style="color:#ff9b3d;" class="count"><?php echo $deceased; ?></span></h3>
+                  </div>
+                </div>
 
-                <div class="row">
+                <!-- <div class="row total-stats">
                   <div class="col-xs-3" >
-                    <!-- <h5 style="color:white;">Total</h5> -->
                     <h3 style="color:white;">Total: <span style="color:red;" class="count">1000</span></h3>
                   </div>
                   <div class="col-xs-3" >
-                    <!-- <h5 style="color:white;">Total</h5> -->
                     <h3 style="color:white;">Active: <span style="color:#4287f5;" class="count">1000</span></h3>
                   </div>
                   <div class="col-xs-3" >
-                    <!-- <h5 style="color:white;">Total</h5> -->
                     <h3 style="color:white;">Recovered: <span style="color:#3bff38;" class="count">1000</span></h3>
                   </div>
                   <div class="col-xs-3" >
-                    <!-- <h5 style="color:white;">Total</h5> -->
                     <h3 style="color:white;">Deceased: <span style="color:#ff9b3d;" class="count">1000</span></h3>
                   </div>
-                </div>
+                </div> -->
 
 
 
