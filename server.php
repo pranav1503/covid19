@@ -1,6 +1,5 @@
 <?php
 include 'db.php';
-
 //--------------------  Total ---------------------//
 
 $link = "https://api.covid19india.org/data.json";
@@ -14,10 +13,10 @@ $active = $total['active'];
 $iconfirmed = $total['deltaconfirmed'];
 $irecovered = $total['deltarecovered'];
 $ideaths = $total['deltadeaths'];
-
+echo $confirmed."<br>".$recovered."<br>".$active."<br>".$deaths;
 $sql = "UPDATE total set total=$confirmed, active=$active, recovered=$recovered, deaths=$deaths, itotal=$iconfirmed, irecovered=$irecovered, ideaths=$ideaths where id=1";
 $result = $conn->query($sql);
-
+print_r(mysqli_error($conn));
 
 //--------------------  State ---------------------//
 
