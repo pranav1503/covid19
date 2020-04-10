@@ -76,6 +76,7 @@
   <div class="modal-content">
     <span class="close">&times;</span>
     <p>Hello Changed Model</p>
+    <p>Hello gitHub</p>
   </div>
 
 
