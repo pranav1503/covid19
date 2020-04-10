@@ -57,6 +57,7 @@
     </tr>
   </thead>
   <tbody>
+    <!--  -->
     <tr id="myBtn">
       <th scope="row">1</th>
       <td>Mark</td>
@@ -64,58 +65,20 @@
       <td>@mdo</td>
       <td>lsdfjkldsfdlkjfjdlkjfkdjslkd</td>
     </tr>
-    <tr id="myBtn">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>lsdfjkldsfdlkjfjdlkjfkdjslkd</td>
-    </tr>
-    <tr id="myBtn">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>lsdfjkldsfdlkjfjdlkjfkdjslkd</td>
-    </tr>
-    <tr id="myBtn">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>lsdfjkldsfdlkjfjdlkjfkdjslkd</td>
-    </tr>
-    <tr id="myBtn">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>lsdfjkldsfdlkjfjdlkjfkdjslkd</td>
-    </tr>
-    <tr id="myBtn">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>lsdfjkldsfdlkjfjdlkjfkdjslkd</td>
-    </tr>
-    <tr id="myBtn">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>lsdfjkldsfdlkjfjdlkjfkdjslkd</td>
-    </tr>
-
+    <!--  -->
   </tbody>
 </table>
-<div id="myModal" class="modal">
 
+
+
+<div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p>Hello Changed Model</p>
   </div>
+
+
 
 </div>
   </body>
