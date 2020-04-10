@@ -8,8 +8,20 @@ $result = $conn->query($sql);
               $total = $row['total'];
               $active = $row['active'];
               $recovered = $row['recovered'];
-              $deceased = $row['deaths'];
+              $deaths = $row['deaths'];
+              $itotal = $row['itotal'];
+              $irecovered = $row['irecovered'];
+              $ideaths = $row['ideaths'];
           }
+      }
+      if($itotal != 0){
+        $total = $total."[+".$itotal."]";
+      }
+      if($irecovered != 0){
+        $recovered = $recovered."[+".$irecovered."]";
+      }
+      if($ideaths != 0){
+        $deaths = $deaths."[+".$ideaths."]";
       }
  ?>
 
@@ -149,16 +161,16 @@ $result = $conn->query($sql);
                 </p> -->
                 <div class="rowmy">
                   <div class="colmy-6">
-                    <h3 style="color:white;">Total: <br><span style="color:red;" class="count"><?php echo $total; ?></span></h3>
+                    <h3 style="color:white;">Total: <br><span style="color:red;" class="counta"><?php echo $total; ?></h3>
                   </div>
                   <div class="colmy-6">
-                    <h3 style="color:white;">Active:<br> <span style="color:#4287f5;" class="count"><?php echo $active; ?></span></h3>
+                    <h3 style="color:white;">Active:<br> <span style="color:#4287f5;" class="counta"><?php echo $active; ?></span></h3>
                   </div>
                   <div class="colmy-6">
-                    <h3 style="color:white;">Recovered:<br> <span style="color:#3bff38;" class="count"><?php echo $recovered; ?></span></h3>
+                    <h3 style="color:white;">Recovered:<br> <span style="color:#3bff38;" class="counta"><?php echo $recovered; ?></span></h3>
                   </div>
                   <div class="colmy-6">
-                    <h3 style="color:white;">Deceased:<br> <span style="color:#ff9b3d;" class="count"><?php echo $deceased; ?></span></h3>
+                    <h3 style="color:white;">Deceased:<br> <span style="color:#ff9b3d;" class="counta"><?php echo $deaths; ?></span></h3>
                   </div>
                 </div>
 
