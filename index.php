@@ -166,6 +166,8 @@ $result = $conn->query($sql);
                   <div class="colmy-6">
                     <h3 style="color:white;">Active:<br> <span style="color:#4287f5;" class="counta"><?php echo $active; ?></span></h3>
                   </div>
+                </div>
+                <div class="rowmy">
                   <div class="colmy-6">
                     <h3 style="color:white;">Recovered:<br> <span style="color:#3bff38;" class="counta"><?php echo $recovered; ?></span></h3>
                   </div>
@@ -173,23 +175,6 @@ $result = $conn->query($sql);
                     <h3 style="color:white;">Deceased:<br> <span style="color:#ff9b3d;" class="counta"><?php echo $deaths; ?></span></h3>
                   </div>
                 </div>
-
-                <!-- <div class="row total-stats">
-                  <div class="col-xs-3" >
-                    <h3 style="color:white;">Total: <span style="color:red;" class="count">1000</span></h3>
-                  </div>
-                  <div class="col-xs-3" >
-                    <h3 style="color:white;">Active: <span style="color:#4287f5;" class="count">1000</span></h3>
-                  </div>
-                  <div class="col-xs-3" >
-                    <h3 style="color:white;">Recovered: <span style="color:#3bff38;" class="count">1000</span></h3>
-                  </div>
-                  <div class="col-xs-3" >
-                    <h3 style="color:white;">Deceased: <span style="color:#ff9b3d;" class="count">1000</span></h3>
-                  </div>
-                </div> -->
-
-
 
         </div> <!-- end home-content -->
 
@@ -229,18 +214,22 @@ $result = $conn->query($sql);
 
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
-                <h3 class="subhead">Who We Are</h3>
-                <h1 class="display-1">We are a group of design driven individuals passionate about creating beautiful UI designs.</h1>
+                <h3 class="subhead">States and Union Territories</h3>              
             </div>
-        </div> <!-- end section-header -->
+        </div>
 
         <div class="row" data-aos="fade-up">
             <div class="col-full">
-                <p class="lead">
-                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
-                </p>
+                <iframe src="states.php" width="100% " id="myIframe" frameborder="0"></iframe>
+                <script>
+                    console.log("hi");
+                    var iframe = document.getElementById("myIframe");
+                    iframe.onload = function(){
+                        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                    }
+                </script>
             </div>
-        </div> <!-- end about-desc -->
+        </div>
 
         <div class="row">
 
@@ -290,12 +279,83 @@ $result = $conn->query($sql);
                     </div>
                 </div>
 
-            </div> <!-- end process -->
+            </div>
 
-        </div> <!-- end about-stats -->
+        </div>
 
-    </section> <!-- end s-about -->
+    </section>
 
+    <!-- <section id='about' class="s-about">
+
+        <div class="row section-header" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead">Who We Are</h3>
+                <h1 class="display-1">We are a group of design driven individuals passionate about creating beautiful UI designs.</h1>
+            </div>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+            <div class="col-full">
+                <p class="lead">
+                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="about-process process block-1-2 block-tab-full">
+
+                <div class="process__vline-left"></div>
+                <div class="process__vline-right"></div>
+
+                <div class="col-block process__col" data-item="1" data-aos="fade-up">
+                    <div class="process__text">
+                        <h4>Define</h4>
+
+                        <p>
+                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
+                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-block process__col" data-item="2" data-aos="fade-up">
+                    <div class="process__text">
+                        <h4>Design</h4>
+
+                        <p>
+                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
+                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-block process__col" data-item="3" data-aos="fade-up">
+                    <div class="process__text">
+                        <h4>Build</h4>
+
+                        <p>
+                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
+                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-block process__col" data-item="4" data-aos="fade-up">
+                    <div class="process__text">
+                        <h4>Launch</h4>
+
+                        <p>
+                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
+                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section> -->
+    <!-- end s-about -->
 
     <!-- services
     ================================================== -->
@@ -826,20 +886,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
           });
       });
 
-      $.ajax({
-        url: "https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise",
-        success: function (data) {
-          console.log(data);
-          // var obj = JSON.parse(data);
-          console.log(data.data.total.confirmed);
-        },
-        error: function () {
-          alert("nope")
-        }
-      })
-
     </script>
-
 </body>
 
 </html>
