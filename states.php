@@ -19,7 +19,6 @@
         background-color: rgb(0,0,0); /* Fallback color */
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
       }
-
       /* Modal Content */
       .modal-content {
         background-color: #fefefe;
@@ -28,7 +27,6 @@
         border: 1px solid #888;
         width: 80%;
       }
-
       /* The Close Button */
       .close {
         color: #aaaaaa;
@@ -36,7 +34,6 @@
         font-size: 28px;
         font-weight: bold;
       }
-
       .close:hover,
       .close:focus {
         color: #000;
@@ -68,18 +65,13 @@
     <!--  -->
   </tbody>
 </table>
-
-
-
 <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
     <p>Hello Changed Model</p>
+    <p>Hello gitHub</p>
   </div>
-
-
-
 </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -88,23 +80,18 @@
 <script>
 // Get the modal
 var modal = document.getElementById("myModal");
-
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
 }
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {

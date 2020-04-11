@@ -79,6 +79,11 @@ $result = $conn->query($sql);
         .colmy-10 {width: 83.33%;}
         .colmy-11 {width: 91.66%;}
         .colmy-12 {width: 100%;}
+
+      /* .mob-state{
+        display: none;
+      } */
+
     </style>
 
 </head>
@@ -214,73 +219,24 @@ $result = $conn->query($sql);
 
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
-                <h3 class="subhead">States and Union Territories</h3>              
+                <h3 class="subhead">States and Union Territories</h3>
             </div>
         </div>
 
-        <div class="row" data-aos="fade-up">
+
+        <div id="state-div"  data-aos="fade-up">
             <div class="col-full">
-                <iframe src="states.php" width="100% " id="myIframe" frameborder="0"></iframe>
-                <script>
-                    console.log("hi");
-                    var iframe = document.getElementById("myIframe");
-                    iframe.onload = function(){
-                        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-                    }
-                </script>
+                <?php
+                 include 'states.php';
+                  ?>
             </div>
-        </div>
-
-        <div class="row">
-
-            <div class="about-process process block-1-2 block-tab-full">
-
-                <div class="process__vline-left"></div>
-                <div class="process__vline-right"></div>
-
-                <div class="col-block process__col" data-item="1" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Define</h4>
-
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="2" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Design</h4>
-
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="3" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Build</h4>
-
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="4" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Launch</h4>
-
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
+            <script type="text/javascript">
+                var element = document.getElementById("state-div");
+                element.classList.remove("row");
+                if(screen.width > 1200){
+                  element.classList.add("row");
+                }
+            </script>
         </div>
 
     </section>
