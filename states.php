@@ -122,53 +122,69 @@ body {
 
   <?php
     include 'db.php';
-    $sql = "SELECT * from states";
+    $sql = "SELECT * from states ORDER BY confirmed DESC";
     $result = $conn->query($sql);
           if ($result->num_rows > 0) {
               // output data of each row
               while($row = $result->fetch_assoc()) {
                   $state = $row['state'];
                   $confirmed = $row['confirmed'];
+                  if ($confirmed == 0) {
+                    continue;
+                  }
                   $active = $row['active'];
                   $recovered = $row['recovered'];
                   $deaths = $row['deaths'];
+                  $iconfirmed = $row['iconfirmed'];
+                  $irecovered = $row['irecovered'];
+                  $ideath = $row['ideaths'];
    ?>
 
   <div class="myrow"  onclick="openTab('<?php echo str_replace(' ', '', $state); ?>');">
     <div class="mycolumn">
-      <?php echo $state; ?>
+        <i class="fa fa-angle-right" id="<?php echo str_replace(' ', '', $state).'arrow'; ?>"></i>&nbsp;<?php echo $state; ?>
     </div>
     <div class="mycolumn" >
-      <?php echo $confirmed; ?>
+      <?php echo $confirmed; ?><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></span>
     </div>
     <div class="mycolumn" >
       <?php echo $active; ?>
     </div>
     <div class="mycolumn" >
-      <?php echo $recovered; ?>
+        <?php echo $recovered; ?><span style="color:#83FF48;"><?php if ($irecovered != 0) {echo "(+".$irecovered.")";}?></span>
     </div>
     <div class="mycolumn" >
-      <?php echo $deaths; ?>
+        <?php echo $deaths; ?><span style="color: #A2B8B6;"><?php if ($ideath != 0) {echo "(+".$ideath.")";}?></span>
     </div>
   </div>
 
   <div id="<?php echo str_replace(' ', '', $state); ?>" class="containerTab" style="display:none;">
-    <div class="disrow">
+     <div class="disrow">
       <div class="discolumn">
         District
       </div>
       <div class="discolumn">
         CONFIRMED
       </div>
+
     </div>
+    <?php
+        $query = "SELECT * FROM districts WHERE state='$state' ORDER BY confirmed DESC";
+                  $sql1 = mysqli_query($conn,$query);
+                  while($row1 = mysqli_fetch_assoc($sql1)){
+                      $dis = $row1['district'];
+                      $confirmed = $row1['confirmed'];
+      ?>
     <div class="disrow">
-      <div class="discolumn">
-        dis1
+    <div class="discolumn">
+        <?php echo $dis; ?>
       </div>
       <div class="discolumn">
-        1000
+        <?php echo $confirmed;?>
       </div>
+
     </div>
+     <?php }?>
   </div>
 
   <?php
@@ -178,19 +194,25 @@ body {
 </div>
 <script>
 function openTab(tabName) {
+
   if(document.getElementById(tabName).style.display !== "block"){
-  	var i, x;
-    x = document.getElementsByClassName("containerTab");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
+  	// var i, x;
+    // x = document.getElementsByClassName("containerTab");
+    // for (i = 0; i < x.length; i++) {
+    //   x[i].style.display = "none";
+    // }
     document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName+"arrow").classList.remove("fa-angle-right");
+    document.getElementById(tabName+"arrow").classList.add("fa-angle-down");
   }else{
-  	var i, x;
-    x = document.getElementsByClassName("containerTab");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
+    document.getElementById(tabName).style.display = "none";
+    document.getElementById(tabName+"arrow").classList.add("fa-angle-right");
+    document.getElementById(tabName+"arrow").classList.remove("fa-angle-down");
+  	// var i, x;
+    // x = document.getElementsByClassName("containerTab");
+    // for (i = 0; i < x.length; i++) {
+    //   x[i].style.display = "none";
+    // }
   }
 
 
