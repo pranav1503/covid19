@@ -223,7 +223,7 @@ $result = $conn->query($sql);
         </div>
 
 
-        <div id="state-div"  data-aos="fade-up">
+        <div id="state-div"  data-aos="fade-up" style="overflow-y:scroll;">
             <div class="col-full">
                 <?php
                  include 'states.php';
