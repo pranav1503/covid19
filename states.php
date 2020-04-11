@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -130,6 +129,9 @@ body {
               while($row = $result->fetch_assoc()) {
                   $state = $row['state'];
                   $confirmed = $row['confirmed'];
+                  if ($confirmed == 0) {
+                    continue;
+                  }
                   $active = $row['active'];
                   $recovered = $row['recovered'];
                   $deaths = $row['deaths'];
@@ -140,7 +142,7 @@ body {
 
   <div class="myrow"  onclick="openTab('<?php echo str_replace(' ', '', $state); ?>');">
     <div class="mycolumn">
-        <?php echo $state; ?>
+        <i class="fa fa-angle-right" id="<?php echo str_replace(' ', '', $state).'arrow'; ?>"></i>&nbsp;<?php echo $state; ?>
     </div>
     <div class="mycolumn" >
       <?php echo $confirmed; ?><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></span>
@@ -164,9 +166,9 @@ body {
       <div class="discolumn">
         CONFIRMED
       </div>
-      
+
     </div>
-    <?php 
+    <?php
         $query = "SELECT * FROM districts WHERE state='$state' ORDER BY confirmed DESC";
                   $sql1 = mysqli_query($conn,$query);
                   while($row1 = mysqli_fetch_assoc($sql1)){
@@ -180,7 +182,7 @@ body {
       <div class="discolumn">
         <?php echo $confirmed;?>
       </div>
-     
+
     </div>
      <?php }?>
   </div>
@@ -192,19 +194,25 @@ body {
 </div>
 <script>
 function openTab(tabName) {
+
   if(document.getElementById(tabName).style.display !== "block"){
-  	var i, x;
-    x = document.getElementsByClassName("containerTab");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
+  	// var i, x;
+    // x = document.getElementsByClassName("containerTab");
+    // for (i = 0; i < x.length; i++) {
+    //   x[i].style.display = "none";
+    // }
     document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName+"arrow").classList.remove("fa-angle-right");
+    document.getElementById(tabName+"arrow").classList.add("fa-angle-down");
   }else{
-  	var i, x;
-    x = document.getElementsByClassName("containerTab");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
+    document.getElementById(tabName).style.display = "none";
+    document.getElementById(tabName+"arrow").classList.add("fa-angle-right");
+    document.getElementById(tabName+"arrow").classList.remove("fa-angle-down");
+  	// var i, x;
+    // x = document.getElementsByClassName("containerTab");
+    // for (i = 0; i < x.length; i++) {
+    //   x[i].style.display = "none";
+    // }
   }
 
 
