@@ -1,3 +1,4 @@
+<?php include 'db.php';?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -56,15 +57,28 @@
       <th scope="col">Deaths</th>
     </tr>
   </thead>
+  <?php $query = "SELECT * FROM states";
+                  $select_all_posts = mysqli_query($conn,$query);
+                  while($row = mysqli_fetch_assoc($select_all_posts)){
+                        $state = $row['state'];
+                        $confirmed = $row['confirmed'];
+                        $active = $row['active'];
+                        $recovered = $row['recovered'];
+                        $death = $row['deaths'];
+                        $iconfirmed = $row['iconfirmed'];
+                        $irecovered = $row['irecovered'];
+                        $ideath = $row['ideaths'];
+        ?>
   <tbody>
     <!--  -->
     <tr id="myBtn">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>lsdfjkldsfdlkjfjdlkjfkdjslkd</td>
-    </tr>
+				<td><?php echo $state;?></td>
+				<td><?php echo $confirmed;?><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></td>
+				<td><?php echo $active;?></td>
+				<td><?php echo $recovered;?><span style="color:#83FF48;"><?php if ($irecovered != 0) {echo "(+".$irecovered.")";}?></td>
+				<td><?php echo $death;?><span style="color: #A2B8B6;"><?php if ($ideath != 0) {echo "(+".$ideath.")";}?></td>
+			</tr>
+			<?php }?>
     <!--  -->
   </tbody>
 </table>
@@ -78,6 +92,7 @@
     <p>Hello Changed Model</p>
     <p>Hello gitHub</p>
   </div>
+  
 
 
 
