@@ -13,15 +13,17 @@ $active = $total['active'];
 $iconfirmed = $total['deltaconfirmed'];
 $irecovered = $total['deltarecovered'];
 $ideaths = $total['deltadeaths'];
+$dateupdate = date_format(date_create(str_replace('/','-', $total['lastupdatedtime'])),'Y-m-d H:i:s');
 print_r($total);
-echo "<br>".$confirmed."<br>".$recovered."<br>".$active."<br>".$deaths;
-$sql = "UPDATE total set total=$confirmed, active=$active, recovered=$recovered, deaths=$deaths, itotal=$iconfirmed, irecovered=$irecovered, ideaths=$ideaths where id=1";
+echo "<br>".$confirmed."<br>".$recovered."<br>".$active."<br>".$deaths."<br>".$dateupdate."<br>";
+$sql = "UPDATE total set total=$confirmed, active=$active, recovered=$recovered, deaths=$deaths, itotal=$iconfirmed, irecovered=$irecovered, ideaths=$ideaths, last_update='$dateupdate' where id=1";
 $result = $conn->query($sql);
 print_r(mysqli_error($conn));
 
 //--------------------  State ---------------------//
 
 $states_wise = array_slice($obj["statewise"], 1, sizeof($obj["statewise"])-1, true);
+// print_r($states_wise);
 $sql = "DELETE FROM states";
 $result = $conn->query($sql);
 foreach ($states_wise as $s) {
@@ -33,7 +35,9 @@ foreach ($states_wise as $s) {
   $iconfirmed = $s['deltaconfirmed'];
   $irecovered = $s['deltarecovered'];
   $ideaths = $s['deltadeaths'];
-  $sql = "INSERT INTO states(state,confirmed,active,recovered,deaths,iconfirmed,irecovered,ideaths) VALUES ('$state',$confirmed,$active,$recovered,$deaths,$iconfirmed,$irecovered,$ideaths)";
+  $dateupdate = date_format(date_create(str_replace('/','-', $s['lastupdatedtime'])),'Y-m-d H:i:s');
+  // echo $dateupdate."<br>";
+  $sql = "INSERT INTO states(state,confirmed,active,recovered,deaths,iconfirmed,irecovered,ideaths,last_update) VALUES ('$state',$confirmed,$active,$recovered,$deaths,$iconfirmed,$irecovered,$ideaths,'$dateupdate')";
   $result = $conn->query($sql);
 }
 
