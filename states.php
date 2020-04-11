@@ -68,64 +68,42 @@
                         $iconfirmed = $row['iconfirmed'];
                         $irecovered = $row['irecovered'];
                         $ideath = $row['ideaths'];
+                        $state2 = str_replace(" ","",$state);
         ?>
   <tbody>
     <!--  -->
-    <tr id="myBtn">
+    <tr data-toggle="collapse" data-target="<?php echo "#".$state2;?>" class="accordion-toggle">
 				<td><?php echo $state;?></td>
 				<td><?php echo $confirmed;?><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></td>
 				<td><?php echo $active;?></td>
 				<td><?php echo $recovered;?><span style="color:#83FF48;"><?php if ($irecovered != 0) {echo "(+".$irecovered.")";}?></td>
 				<td><?php echo $death;?><span style="color: #A2B8B6;"><?php if ($ideath != 0) {echo "(+".$ideath.")";}?></td>
 			</tr>
+   
+			<tr >
+            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id="<?php echo $state2;?>">
+            
+            
+            
+            </div> </td>
+        </tr>
 			<?php }?>
     <!--  -->
   </tbody>
 </table>
 
 
-
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Hello Changed Model</p>
-    <p>Hello gitHub</p>
-  </div>
-  
-
-
-
-</div>
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+$('.accordian-body').on('show.bs.collapse', function () {
+    $(this).closest("table")
+        .find(".collapse.in")
+        .not(this)
+        //.collapse('toggle')
+})    
+    
 </script>
 </html>
