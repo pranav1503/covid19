@@ -144,17 +144,17 @@ body {
     <div class="mycolumn">
         <i class="fa fa-angle-right" id="<?php echo str_replace(' ', '', $state).'arrow'; ?>"></i>&nbsp;<?php echo $state; ?>
     </div>
-    <div class="mycolumn" >
-      <?php echo $confirmed; ?><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></span>
+    <div class="mycolumn">
+      <?php echo $confirmed; ?><div><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></span></div>
     </div>
     <div class="mycolumn" >
       <?php echo $active; ?>
     </div>
     <div class="mycolumn" >
-        <?php echo $recovered; ?><span style="color:#83FF48;"><?php if ($irecovered != 0) {echo "(+".$irecovered.")";}?></span>
+        <?php echo $recovered; ?><div><span style="color:#83FF48;"><?php if ($irecovered != 0) {echo "(+".$irecovered.")";}?></span></div>
     </div>
     <div class="mycolumn" >
-        <?php echo $deaths; ?><span style="color: #A2B8B6;"><?php if ($ideath != 0) {echo "(+".$ideath.")";}?></span>
+        <?php echo $deaths; ?><div><span style="color: #A2B8B6;"><?php if ($ideath != 0) {echo "(+".$ideath.")";}?></span></div>
     </div>
   </div>
 
@@ -174,13 +174,14 @@ body {
                   while($row1 = mysqli_fetch_assoc($sql1)){
                       $dis = $row1['district'];
                       $confirmed = $row1['confirmed'];
+                      $inc = $row1['increased'];
       ?>
     <div class="disrow">
     <div class="discolumn">
         <?php echo $dis; ?>
       </div>
       <div class="discolumn">
-        <?php echo $confirmed;?>
+        <?php echo $confirmed;?><span style="color:red;"><?php if ($inc != 0) {echo "(+".$inc.")";}?></span>
       </div>
 
     </div>
