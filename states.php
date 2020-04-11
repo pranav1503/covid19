@@ -1,109 +1,219 @@
-<?php include 'db.php';?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style media="screen">
-            /* The Modal (background) */
-      .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        padding-top: 100px; /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-      }
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <style>
+* {
+  box-sizing: border-box;
+}
 
-      /* Modal Content */
-      .modal-content {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-      }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-      /* The Close Button */
-      .close {
-        color: #aaaaaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-      }
+/* The grid: Three equal mycolumns that floats next to each other */
+.myrow{
+  background-color: #383737;
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid white;
+}
 
-      .close:hover,
-      .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-      }
-    </style>
+.myrow:nth-child(1){
+  background-color: #141414;
+}
+
+.disrow{
+  background-color: #383737;
+  width: 40%;
+  padding: 2px 0 2px 0;
+  border-bottom: 1px solid white;
+}
+
+@media only screen and (max-width:1200px) {
+  .disrow{
+    width: 100%;
+  }
+}
+
+.discolumn{
+  float: left;
+  padding: 5px;
+  /* text-align: center; */
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+}
+.discolumn:nth-child(1){
+  width: 60%;
+}
+.discolumn:nth-child(2){
+  width: 40%;
+}
+
+.mycolumn {
+  float: left;
+  width: 17%;
+  padding: 5px;
+  /* text-align: center; */
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+  line-height: 16px;
+}
+
+.mycolumn:nth-child(1) {
+  width: 32%;
+}
+.mycolumn:nth-child(2) {
+  width: 20%;
+}
+.mycolumn:nth-child(3) {
+  width: 14%;
+}
+
+/* .myrow:nth-child(1) .mycolumn{
+  font-size: 20px;
+} */
+
+.containerTab {
+  padding: 20px;
+  color: white;
+}
+
+/* Clear floats after the mycolumns */
+.myrow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.disrow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Closable button inside the container tab */
+
+</style>
   </head>
   <body>
-    <table class="table table-striped table-dark">
-  <thead>
-    <tr>
-      <th scope="col">State</th>
-      <th scope="col">Confirmed</th>
-      <th scope="col">Active</th>
-      <th scope="col">Recovered</th>
-      <th scope="col">Deaths</th>
-    </tr>
-  </thead>
-  <?php $query = "SELECT * FROM states";
-                  $select_all_posts = mysqli_query($conn,$query);
-                  while($row = mysqli_fetch_assoc($select_all_posts)){
-                        $state = $row['state'];
-                        $confirmed = $row['confirmed'];
-                        $active = $row['active'];
-                        $recovered = $row['recovered'];
-                        $death = $row['deaths'];
-                        $iconfirmed = $row['iconfirmed'];
-                        $irecovered = $row['irecovered'];
-                        $ideath = $row['ideaths'];
-                        $state2 = str_replace(" ","",$state);
-        ?>
-  <tbody>
-    <!--  -->
-    <tr data-toggle="collapse" data-target="<?php echo "#".$state2;?>" class="accordion-toggle">
-				<td><?php echo $state;?></td>
-				<td><?php echo $confirmed;?><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></td>
-				<td><?php echo $active;?></td>
-				<td><?php echo $recovered;?><span style="color:#83FF48;"><?php if ($irecovered != 0) {echo "(+".$irecovered.")";}?></td>
-				<td><?php echo $death;?><span style="color: #A2B8B6;"><?php if ($ideath != 0) {echo "(+".$ideath.")";}?></td>
-			</tr>
-   
-			<tr >
-            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id="<?php echo $state2;?>">
-            
-            
-            
-            </div> </td>
-        </tr>
-			<?php }?>
-    <!--  -->
-  </tbody>
-</table>
 
+<div class="" style="overflow-x:scroll;">
+  <div class="myrow">
+    <div class="mycolumn">
+      State
+    </div>
+    <div class="mycolumn">
+      CNFMD
+    </div>
+    <div class="mycolumn">
+      ACTV
+    </div>
+    <div class="mycolumn">
+      RCVRD
+    </div>
+    <div class="mycolumn">
+      DCSD
+    </div>
+  </div>
+
+  <?php
+    include 'db.php';
+    $sql = "SELECT * from states ORDER BY confirmed DESC";
+    $result = $conn->query($sql);
+          if ($result->num_rows > 0) {
+              // output data of each row
+              while($row = $result->fetch_assoc()) {
+                  $state = $row['state'];
+                  $confirmed = $row['confirmed'];
+                  $active = $row['active'];
+                  $recovered = $row['recovered'];
+                  $deaths = $row['deaths'];
+                  $iconfirmed = $row['iconfirmed'];
+                  $irecovered = $row['irecovered'];
+                  $ideath = $row['ideaths'];
+   ?>
+
+  <div class="myrow"  onclick="openTab('<?php echo str_replace(' ', '', $state); ?>');">
+    <div class="mycolumn">
+        <?php echo $state; ?>
+    </div>
+    <div class="mycolumn" >
+      <?php echo $confirmed; ?><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></span>
+    </div>
+    <div class="mycolumn" >
+      <?php echo $active; ?>
+    </div>
+    <div class="mycolumn" >
+        <?php echo $recovered; ?><span style="color:#83FF48;"><?php if ($irecovered != 0) {echo "(+".$irecovered.")";}?></span>
+    </div>
+    <div class="mycolumn" >
+        <?php echo $deaths; ?><span style="color: #A2B8B6;"><?php if ($ideath != 0) {echo "(+".$ideath.")";}?></span>
+    </div>
+  </div>
+
+  <div id="<?php echo str_replace(' ', '', $state); ?>" class="containerTab" style="display:none;">
+     <div class="disrow">
+      <div class="discolumn">
+        District
+      </div>
+      <div class="discolumn">
+        CONFIRMED
+      </div>
+      
+    </div>
+    <?php 
+        $query = "SELECT * FROM districts WHERE state='$state' ORDER BY confirmed DESC";
+                  $sql1 = mysqli_query($conn,$query);
+                  while($row1 = mysqli_fetch_assoc($sql1)){
+                      $dis = $row1['district'];
+                      $confirmed = $row1['confirmed'];
+      ?>
+    <div class="disrow">
+    <div class="discolumn">
+        <?php echo $dis; ?>
+      </div>
+      <div class="discolumn">
+        <?php echo $confirmed;?>
+      </div>
+     
+    </div>
+     <?php }?>
+  </div>
+
+  <?php
+      }
+    }
+   ?>
+</div>
+<script>
+function openTab(tabName) {
+  if(document.getElementById(tabName).style.display !== "block"){
+  	var i, x;
+    x = document.getElementsByClassName("containerTab");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+  }else{
+  	var i, x;
+    x = document.getElementsByClassName("containerTab");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+  }
+
+
+}
+</script>
 
   </body>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script>
-$('.accordian-body').on('show.bs.collapse', function () {
-    $(this).closest("table")
-        .find(".collapse.in")
-        .not(this)
-        //.collapse('toggle')
-})    
-    
-</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+
 </html>
