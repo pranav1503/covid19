@@ -223,7 +223,7 @@ $result = $conn->query($sql);
         </div>
 
 
-        <div id="state-div"  data-aos="fade-up">
+        <div id="state-div"  data-aos="fade-up" style="overflow-y:scroll;!important">
             <div class="col-full">
                 <?php
                  include 'states.php';
@@ -241,14 +241,12 @@ $result = $conn->query($sql);
     </section>
 
     <!-- <section id='about' class="s-about">
-
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
                 <h3 class="subhead">Who We Are</h3>
                 <h1 class="display-1">We are a group of design driven individuals passionate about creating beautiful UI designs.</h1>
             </div>
         </div>
-
         <div class="row" data-aos="fade-up">
             <div class="col-full">
                 <p class="lead">
@@ -256,18 +254,13 @@ $result = $conn->query($sql);
                 </p>
             </div>
         </div>
-
         <div class="row">
-
             <div class="about-process process block-1-2 block-tab-full">
-
                 <div class="process__vline-left"></div>
                 <div class="process__vline-right"></div>
-
                 <div class="col-block process__col" data-item="1" data-aos="fade-up">
                     <div class="process__text">
                         <h4>Define</h4>
-
                         <p>
                         Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
                         Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
@@ -277,7 +270,6 @@ $result = $conn->query($sql);
                 <div class="col-block process__col" data-item="2" data-aos="fade-up">
                     <div class="process__text">
                         <h4>Design</h4>
-
                         <p>
                         Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
                         Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
@@ -287,7 +279,6 @@ $result = $conn->query($sql);
                 <div class="col-block process__col" data-item="3" data-aos="fade-up">
                     <div class="process__text">
                         <h4>Build</h4>
-
                         <p>
                         Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
                         Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
@@ -297,18 +288,14 @@ $result = $conn->query($sql);
                 <div class="col-block process__col" data-item="4" data-aos="fade-up">
                     <div class="process__text">
                         <h4>Launch</h4>
-
                         <p>
                         Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
                         Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
                         </p>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </section> -->
     <!-- end s-about -->
 

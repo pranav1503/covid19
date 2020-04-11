@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -122,7 +123,7 @@ body {
 
   <?php
     include 'db.php';
-    $sql = "SELECT * from states";
+    $sql = "SELECT * from states ORDER BY confirmed DESC";
     $result = $conn->query($sql);
           if ($result->num_rows > 0) {
               // output data of each row
@@ -132,43 +133,56 @@ body {
                   $active = $row['active'];
                   $recovered = $row['recovered'];
                   $deaths = $row['deaths'];
+                  $iconfirmed = $row['iconfirmed'];
+                  $irecovered = $row['irecovered'];
+                  $ideath = $row['ideaths'];
    ?>
 
   <div class="myrow"  onclick="openTab('<?php echo str_replace(' ', '', $state); ?>');">
     <div class="mycolumn">
-      <?php echo $state; ?>
+        <?php echo $state; ?>
     </div>
     <div class="mycolumn" >
-      <?php echo $confirmed; ?>
+      <?php echo $confirmed; ?><span style="color:red;"><?php if ($iconfirmed != 0) {echo "(+".$iconfirmed.")";}?></span>
     </div>
     <div class="mycolumn" >
       <?php echo $active; ?>
     </div>
     <div class="mycolumn" >
-      <?php echo $recovered; ?>
+        <?php echo $recovered; ?><span style="color:#83FF48;"><?php if ($irecovered != 0) {echo "(+".$irecovered.")";}?></span>
     </div>
     <div class="mycolumn" >
-      <?php echo $deaths; ?>
+        <?php echo $deaths; ?><span style="color: #A2B8B6;"><?php if ($ideath != 0) {echo "(+".$ideath.")";}?></span>
     </div>
   </div>
 
   <div id="<?php echo str_replace(' ', '', $state); ?>" class="containerTab" style="display:none;">
-    <div class="disrow">
+     <div class="disrow">
       <div class="discolumn">
         District
       </div>
       <div class="discolumn">
         CONFIRMED
       </div>
+      
     </div>
+    <?php 
+        $query = "SELECT * FROM districts WHERE state='$state' ORDER BY confirmed DESC";
+                  $sql1 = mysqli_query($conn,$query);
+                  while($row1 = mysqli_fetch_assoc($sql1)){
+                      $dis = $row1['district'];
+                      $confirmed = $row1['confirmed'];
+      ?>
     <div class="disrow">
-      <div class="discolumn">
-        dis1
+    <div class="discolumn">
+        <?php echo $dis; ?>
       </div>
       <div class="discolumn">
-        1000
+        <?php echo $confirmed;?>
       </div>
+     
     </div>
+     <?php }?>
   </div>
 
   <?php
