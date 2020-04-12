@@ -138,6 +138,10 @@ body {
                   $iconfirmed = $row['iconfirmed'];
                   $irecovered = $row['irecovered'];
                   $ideath = $row['ideaths'];
+                  $last_update = $row['last_update'];
+                  $last_update = strtotime($last_update);
+                  $last_update_str = date("d M, H:i", $last_update);
+                  $diff_str = date_diff_str($last_update);
    ?>
 
   <div class="myrow"  onclick="openTab('<?php echo str_replace(' ', '', $state); ?>');">
@@ -159,6 +163,7 @@ body {
   </div>
 
   <div id="<?php echo str_replace(' ', '', $state); ?>" class="containerTab" style="display:none;">
+    <p style="color:green;margin:0;">Last Updated: <?php echo $last_update_str; ?> (<?php echo $diff_str; ?>)</p>
      <div class="disrow">
       <div class="discolumn">
         District

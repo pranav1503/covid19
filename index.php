@@ -1,5 +1,21 @@
 <?php include 'db.php';?>
 <?php
+date_default_timezone_set('Asia/Kolkata');
+
+function date_diff_str($lu)
+{
+  $diff_total = strtotime(date('Y-m-d H:i:s')) - $lu;
+
+  if(intdiv($diff_total,60)<60){
+    $diff_str = intdiv($diff_total,60)." Minutes Ago";
+  }elseif (intdiv($diff_total,3600)<24) {
+    $diff_str = intdiv($diff_total,3600)." Hours Ago";
+  }else{
+    $diff_str = intdiv($diff_total,86400)." Days Ago";
+  }
+  return $diff_str;
+}
+
 $sql = "SELECT * FROM total where id=1";
 $result = $conn->query($sql);
       if ($result->num_rows > 0) {
@@ -11,6 +27,9 @@ $result = $conn->query($sql);
               $itotal = $row['itotal'];
               $irecovered = $row['irecovered'];
               $ideaths = $row['ideaths'];
+              $last_update = $row['last_update'];
+              $last_update = strtotime($last_update);
+              $last_update_str = date("d M, H:i", $last_update);
           }
       }
       if($itotal != 0){
@@ -22,6 +41,8 @@ $result = $conn->query($sql);
       if($ideaths != 0){
         $deaths = $deaths."[+".$ideaths."]";
       }
+
+      $diff_str = date_diff_str($last_update);
  ?>
 
 <!DOCTYPE html>
@@ -155,14 +176,18 @@ $result = $conn->query($sql);
         <div class="home-content">
 
             <div class="row home-content__main">
-                <h1>
-                  Covid-19 Tracker<br>
-                  India
+                <h1 style="color:white;">
+                  Covid-19 Tracker India
+                  <!-- India -->
                 </h1>
-
-                <!-- <p>
-                Always at your service
-                </p> -->
+                <p style="font-size:20px;display:none;color:green;margin:0">
+                </p>
+                <p style="font-size:20px;color:green;margin:0;">
+                Last Updated:<br> <?php echo $last_update_str; ?> IST
+                </p>
+                <p style="font-size:20px;color:green;margin:0">
+                  (<?php echo $diff_str; ?>)
+                </p>
                 <div class="rowmy">
                   <div class="colmy-6">
                     <h3 style="color:white;">Total: <br><span style="color:red;" class="counta"><?php echo $total; ?></h3>
