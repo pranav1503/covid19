@@ -79,4 +79,87 @@ foreach ($past as $key => $value) {
   $result = $conn->query($sql);
 }
 
+//--------------------  GENDER AGE NATIONALITY ---------------------//
+
+$link = "https://api.covid19india.org/raw_data.json";
+$response = file_get_contents($link);
+$obj = json_decode($response,true);
+$male = 0;
+$female = 0;
+$gender_awaiting = 0;
+$keys = array('0-10','10-20','20-30','30-40','40-50','50-60','60-70','70-80','80-90','90-100','100+','awaiting');
+$a = array_fill_keys($keys, 0);
+$nationality =  array();
+foreach ($obj["raw_data"] as $key => $value) {
+  $gender = $value["gender"];
+  if($gender == "F"){
+    $female += 1;
+  }elseif($gender == "M"){
+    $male += 1;
+  }else {
+    $gender_awaiting += 1;
+  }
+
+  $age = $value["agebracket"];
+  if($age>0 && $age<=10){
+    $a['0-10'] += 1;
+  }elseif ($age>10 && $age<=20) {
+    $a['10-20'] += 1;
+  }elseif ($age>20 && $age<=30) {
+    $a['20-30'] += 1;
+  }
+  elseif ($age>30 && $age<=40) {
+    $a['30-40'] += 1;
+  }elseif ($age>40 && $age<=50) {
+    $a['40-50'] += 1;
+  }elseif ($age>50 && $age<=60) {
+    $a['50-60'] += 1;
+  }elseif ($age>60 && $age<=70) {
+    $a['60-70'] += 1;
+  }
+  elseif ($age>70 && $age<=80) {
+    $a['70-80'] += 1;
+  }elseif ($age>80 && $age<=90) {
+    $a['80-90'] += 1;
+  }
+  elseif ($age>90 && $age<=100) {
+    $a['90-100'] += 1;
+  }elseif($age>100) {
+    $a['100+'] += 1;
+  }else{
+    $a['awaiting'] += 1;
+  }
+
+  $nation = $value["nationality"];
+  $nationality['awaiting'] = 0;
+  if ($nation != "") {
+    if (array_key_exists($nation,$nationality)) {
+      $nationality[$nation] += 1;
+    }else {
+      $nationality[$nation] = 1;
+    }
+  }else {
+    $nationality["awaiting"] += 1;
+  }
+
+}
+
+$sql = "DELETE FROM gender";
+$response = $conn->query($sql);
+$sql = "INSERT INTO gender(male,female,awaiting) VALUES ($male,$female,$gender_awaiting)";
+$response = $conn->query($sql);
+$sql = "DELETE FROM age";
+$response = $conn->query($sql);
+foreach ($a as $key => $value) {
+  $sql = "INSERT INTO age(age_range,counts) VALUES ('$key',$value)";
+  $response = $conn->query($sql);
+}
+$sql = "DELETE FROM nationality_count";
+$response = $conn->query($sql);
+foreach ($nationality as $key => $value) {
+  $sql = "INSERT INTO nationality_count(nationality,count) VALUES ('$key',$value)";
+  $response = $conn->query($sql);
+}
+
+
 ?>
