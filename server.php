@@ -1,10 +1,14 @@
 <?php
 include 'db.php';
-//--------------------  Total ---------------------//
+
 
 $link = "https://api.covid19india.org/data.json";
 $response = file_get_contents($link);
 $obj = json_decode($response,true);
+$past = $obj["cases_time_series"];
+
+//--------------------  Total ---------------------//
+
 $total = $obj["statewise"][0];
 $confirmed = $total['confirmed'];
 $recovered = $total['recovered'];
@@ -57,6 +61,22 @@ foreach ($obj1 as $key => $value) {
     $result = $conn->query($sql);
     echo mysqli_error($conn);
   }
+}
+
+//--------------------  PAST DATA ---------------------//
+
+$sql = "DELETE from past_data";
+$result = $conn->query($sql);
+foreach ($past as $key => $value) {
+  $confirmed = $value["totalconfirmed"];
+  $recovered = $value["totalrecovered"];
+  $deaths = $value["totalrecovered"];
+  $iconfirmed = $value["dailyconfirmed"];
+  $ideaths = $value["dailydeceased"];
+  $irecovered = $value["dailyrecovered"];
+  $date = date("Y-m-d",strtotime($value["date"]." ".date("Y")));
+  $sql = "INSERT INTO past_data(confirmed,recovered,deaths,iconfirmed,irecovered,ideaths,date_cause) VALUES ($confirmed,$recovered,$deaths,$iconfirmed,$irecovered,$ideaths,'$date')";
+  $result = $conn->query($sql);
 }
 
 ?>
