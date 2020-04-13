@@ -62,6 +62,21 @@
                  array_push($death,$deaths);
              }
          }
+        $confirm_counter = "";
+        for ($i=0; $i < sizeof($confirm); $i++) {
+                    $confirm_counter .= ("$confirm[$i],");
+        }
+          
+        $recover_counter = "";
+        for ($i=0; $i < sizeof($recover); $i++) {
+                    $recover_counter .= ("$recover[$i],");
+        }
+         
+        $death_counter = "";
+        for ($i=0; $i < sizeof($death); $i++) {
+                    $death_counter .= ("$death[$i],");
+        }
+          
          $ThirtyDaysAgo = new \DateTimeImmutable('-30 day');
 
          $query1 = "SELECT * FROM past_data WHERE date_cause >= ".$ThirtyDaysAgo->format('Y-m-d');
@@ -85,6 +100,21 @@
                  array_push($death1,$deaths);
              }
         }
+          
+        $confirm_counter1 = "";
+        for ($i=0; $i < sizeof($confirm1); $i++) {
+                    $confirm_counter1 .= ("$confirm1[$i],");
+        }
+          
+        $recover_counter1 = "";
+        for ($i=0; $i < sizeof($recover1); $i++) {
+                    $recover_counter1 .= ("$recover1[$i],");
+        }
+         
+        $death_counter1 = "";
+        for ($i=0; $i < sizeof($death1); $i++) {
+                    $death_counter1 .= ("$death1[$i],");
+        }
          ?>
 
           <canvas id="confirmed14" width="0" height="0"></canvas>
@@ -101,7 +131,7 @@
                            label: 'COVID-CONFIRMED',
                            backgroundColor: '',
                            borderColor: 'rgb(255,99,132)',
-                           data: [<?php echo $confirm[0];?>,<?php echo $confirm[1];?>,<?php echo $confirm[2];?>,<?php echo $confirm[3];?>,<?php echo $confirm[4];?>,<?php echo $confirm[5];?>,<?php echo $confirm[6];?>,<?php echo $confirm[7];?>,<?php echo $confirm[8];?>,<?php echo $confirm[9];?>,<?php echo $confirm[10];?>,<?php echo $confirm[11];?>,<?php echo $confirm[12];?>,<?php echo $confirm[13];?>]
+                           data: [<?php echo $confirm_counter;?>]
                        }]
                    },
 
@@ -141,7 +171,7 @@
                          label: 'COVID-CONFIRMED',
                          backgroundColor: '',
                          borderColor: 'rgb(255,99,132)',
-                         data: [<?php echo $confirm1[0];?>,<?php echo $confirm1[1];?>,<?php echo $confirm1[2];?>,<?php echo $confirm1[3];?>,<?php echo $confirm1[4];?>,<?php echo $confirm1[5];?>,<?php echo $confirm1[6];?>,<?php echo $confirm1[7];?>,<?php echo $confirm1[8];?>,<?php echo $confirm1[9];?>,<?php echo $confirm1[10];?>,<?php echo $confirm1[11];?>,<?php echo $confirm1[12];?>,<?php echo $confirm1[13];?>,<?php echo $confirm1[14];?>,<?php echo $confirm1[15];?>,<?php echo $confirm1[16];?>,<?php echo $confirm1[17];?>,<?php echo $confirm1[18];?>,<?php echo $confirm1[19];?>,<?php echo $confirm1[20];?>,<?php echo $confirm1[21];?>,<?php echo $confirm1[22];?>,<?php echo $confirm1[23];?>,<?php echo $confirm1[24];?>,<?php echo $confirm1[25];?>,<?php echo $confirm1[26];?>,<?php echo $confirm1[27];?>,<?php echo $confirm1[28];?>,<?php echo $confirm1[29];?>,<?php echo $confirm1[30];?>]
+                         data: [<?php echo $confirm_counter1;?>]
                      }]
                  },
 
@@ -184,7 +214,7 @@
                             label: 'COVID-RECOVERED',
                             backgroundColor: '',
                             borderColor: 'rgb(132, 255, 132)',
-                            data: [<?php echo $recover[0];?>,<?php echo $recover[1];?>,<?php echo $recover[2];?>,<?php echo $recover[3];?>,<?php echo $recover[4];?>,<?php echo $recover[5];?>,<?php echo $recover[6];?>,<?php echo $recover[7];?>,<?php echo $recover[8];?>,<?php echo $recover[9];?>,<?php echo $recover[10];?>,<?php echo $recover[11];?>,<?php echo $recover[12];?>,<?php echo $recover[13];?>]
+                            data: [<?php echo $recover_counter;?>]
                         }]
                     },
 
@@ -223,7 +253,7 @@
                                   label: 'COVID-RECOVERED',
                                   backgroundColor: '',
                                   borderColor: 'rgb(132, 255, 132)',
-                                  data: [<?php echo $recover1[0];?>,<?php echo $recover1[1];?>,<?php echo $recover1[2];?>,<?php echo $recover1[3];?>,<?php echo $recover1[4];?>,<?php echo $recover1[5];?>,<?php echo $recover1[6];?>,<?php echo $recover1[7];?>,<?php echo $recover1[8];?>,<?php echo $recover1[9];?>,<?php echo $recover1[10];?>,<?php echo $recover1[11];?>,<?php echo $recover1[12];?>,<?php echo $recover1[13];?>,<?php echo $recover1[14];?>,<?php echo $recover1[15];?>,<?php echo $recover1[16];?>,<?php echo $recover1[17];?>,<?php echo $recover1[18];?>,<?php echo $recover1[19];?>,<?php echo $recover1[20];?>,<?php echo $recover1[21];?>,<?php echo $recover1[22];?>,<?php echo $recover1[23];?>,<?php echo $recover1[24];?>,<?php echo $recover1[25];?>,<?php echo $recover1[26];?>,<?php echo $recover1[27];?>,<?php echo $recover1[28];?>,<?php echo $recover1[29];?>,<?php echo $recover1[30];?>]
+                                  data: [<?php echo $recover_counter1;?>]
                               }]
                           },
 
@@ -264,7 +294,7 @@
                           label: 'COVID-DEATHS',
                           backgroundColor: '',
                           borderColor: 'rgb(255, 199, 99)',
-                          data: [<?php echo $death[0];?>,<?php echo $death[1];?>,<?php echo $death[2];?>,<?php echo $death[3];?>,<?php echo $death[4];?>,<?php echo $death[5];?>,<?php echo $death[6];?>,<?php echo $death[7];?>,<?php echo $death[8];?>,<?php echo $death[9];?>,<?php echo $death[10];?>,<?php echo $death[11];?>,<?php echo $death[12];?>,<?php echo $death[13];?>]
+                          data: [<?php echo $death_counter;?>]
                       }]
                   },
 
@@ -303,7 +333,7 @@
                                 label: 'COVID-DEATHS',
                                 backgroundColor: '',
                                 borderColor: 'rgb(255, 199, 99)',
-                                data: [<?php echo $death1[0];?>,<?php echo $death1[1];?>,<?php echo $death1[2];?>,<?php echo $death1[3];?>,<?php echo $death1[4];?>,<?php echo $death1[5];?>,<?php echo $death1[6];?>,<?php echo $death1[7];?>,<?php echo $death1[8];?>,<?php echo $death1[9];?>,<?php echo $death1[10];?>,<?php echo $death1[11];?>,<?php echo $death1[12];?>,<?php echo $death1[13];?>,<?php echo $death1[14];?>,<?php echo $death1[15];?>,<?php echo $death1[16];?>,<?php echo $death1[17];?>,<?php echo $death1[18];?>,<?php echo $death1[19];?>,<?php echo $death1[20];?>,<?php echo $death1[21];?>,<?php echo $death1[22];?>,<?php echo $death1[23];?>,<?php echo $death1[24];?>,<?php echo $death1[25];?>,<?php echo $death1[26];?>,<?php echo $death1[27];?>,<?php echo $death1[28];?>,<?php echo $death1[29];?>,<?php echo $death1[30];?>]
+                                data: [<?php echo $death_counter1;?>]
                             }]
                         },
 
