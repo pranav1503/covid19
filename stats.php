@@ -521,7 +521,61 @@
        });
        </script>
       </div>
-      <div class="card">THREE</div>
+      <div class="card">
+                  <?php
+                $query = "SELECT * FROM nationality_count";
+                $nation_count = array();
+                $nation_name = array();
+                $info = mysqli_query($conn,$query);
+                while($row = mysqli_fetch_assoc($info)){
+                    $nation = $row['nationality'];
+                    $count = $row['count'];
+                    #while ($date <= $today) {
+                    // if there is any data for $date, add it to your datase
+                    array_push($nation_count,$count);
+                    array_push($nation_name,$nation);
+                    }
+
+                        $label = "";
+                        for ($i=0; $i < sizeof($nation_name); $i++) {
+                          $label .= ("'$nation_name[$i]',");
+                        }
+                        $nation_counter = "";
+                        for ($i=0; $i < sizeof($nation_count); $i++) {
+                          $nation_counter .= ("$nation_count[$i],");
+                        }
+
+
+
+
+          ?>
+           <canvas id="myChart9" height="0" width="0"></canvas>
+                <script>
+                    var ctx1 = document.getElementById('myChart9').getContext('2d');
+                    var myPieChart = new Chart(ctx1, {
+                        type: 'doughnut',
+                        data : {
+                        datasets: [{
+                        backgroundColor: ["#fa437a","#de6a0b","#8d839c","#32e361","#37ddf0","#3750f0","#9a57de","#f564e6","#f048aa","#ed2860","#93e349","#e0dc5e"],
+                        data: [<?php echo $nation_counter ?>]
+                    }],
+
+
+
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+                    labels: [
+                        <?php echo $label; ?>
+                    ]
+                            },
+            options: {
+                    title: {
+                        display: true,
+                        text: 'PATIENT NATIONALITY PRESENTATION'
+                    }
+            }
+          });
+          </script>
+      </div>
       <!-- <div class="card">FOUR</div> -->
     </div>
 
