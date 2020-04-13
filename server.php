@@ -87,7 +87,7 @@ $obj = json_decode($response,true);
 $male = 0;
 $female = 0;
 $gender_awaiting = 0;
-$keys = array('0-10','10-20','20-30','30-40','40-50','50-60','60-70','70-80','80-90','90-100','100+','awaiting');
+$keys = array('0-10','11-20','21-30','31-40','41-50','51-60','61-70','71-80','81-90','91-100','100+','awaiting');
 $a = array_fill_keys($keys, 0);
 $nationality =  array();
 foreach ($obj["raw_data"] as $key => $value) {
@@ -104,26 +104,26 @@ foreach ($obj["raw_data"] as $key => $value) {
   if($age>0 && $age<=10){
     $a['0-10'] += 1;
   }elseif ($age>10 && $age<=20) {
-    $a['10-20'] += 1;
+    $a['11-20'] += 1;
   }elseif ($age>20 && $age<=30) {
-    $a['20-30'] += 1;
+    $a['21-30'] += 1;
   }
   elseif ($age>30 && $age<=40) {
-    $a['30-40'] += 1;
+    $a['31-40'] += 1;
   }elseif ($age>40 && $age<=50) {
-    $a['40-50'] += 1;
+    $a['41-50'] += 1;
   }elseif ($age>50 && $age<=60) {
-    $a['50-60'] += 1;
+    $a['51-60'] += 1;
   }elseif ($age>60 && $age<=70) {
-    $a['60-70'] += 1;
+    $a['61-70'] += 1;
   }
   elseif ($age>70 && $age<=80) {
-    $a['70-80'] += 1;
+    $a['71-80'] += 1;
   }elseif ($age>80 && $age<=90) {
-    $a['80-90'] += 1;
+    $a['81-90'] += 1;
   }
   elseif ($age>90 && $age<=100) {
-    $a['90-100'] += 1;
+    $a['91-100'] += 1;
   }elseif($age>100) {
     $a['100+'] += 1;
   }else{
