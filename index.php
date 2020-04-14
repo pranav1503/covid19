@@ -107,7 +107,7 @@ $result = $conn->query($sql);
       /* .mob-state{
         display: none;
       } */
-    @media screen and (max-width: 1000px) {
+    @media screen and (min-width: 1000px) {
         .whatsapp{
             display: none;
         }
@@ -123,8 +123,8 @@ $result = $conn->query($sql);
     <header class="s-header">
 
         <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <img src="images/logo.svg" alt="Homepage">
+            <a class="site-logo" href="">
+                <img src="images/logo_new.png" style="height:250px;width:250px;" alt="Homepage">
                 <!-- <h3 style="color:white;">Covid-19 Tracker</h3> -->
             </a>
         </div> <!-- end header-logo -->
@@ -238,7 +238,7 @@ $result = $conn->query($sql);
             </a></li>
         </ul> <!-- end home-social -->
 
-        <a href="#about" class="home-scroll smoothscroll">
+        <a href="#state" class="home-scroll smoothscroll">
             <span class="home-scroll__text">Scroll Down</span>
             <span class="home-scroll__icon"></span>
         </a> <!-- end home-scroll -->
@@ -254,6 +254,7 @@ $result = $conn->query($sql);
             <div class="col-full">
                 <p>The data provided and compiled by <a href="https://www.covid19india.org/" style="color:dodgerblue;">Covid19India</a> using state bulletins and official handles to update the numbers. The data is validated by a group of volunteers and published into a Google sheet and an API.</p>
                 <h3 class="subhead">States and Union Territories</h3>
+                <p>**Click on the state for district details</p>
             </div>
         </div>
 
@@ -480,6 +481,7 @@ $result = $conn->query($sql);
             <div class="col-full cl-copyright">
                 <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> and developed with passion by <a href="https://github.com/Dipropramanick1999/" style="color:white;" target="_blank">Dipro Pramanick</a> and <a href="https://github.com/pranav1503/" style="color:white;" target="_blank">Pranav S</a>
+    <p>Developed as a part of <a href="https://sites.google.com/cmrit.ac.in/mozietyclub" style="color:white;" target="_blank">Moziety</a></p>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
             </div>
         </div>
