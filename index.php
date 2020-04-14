@@ -107,7 +107,11 @@ $result = $conn->query($sql);
       /* .mob-state{
         display: none;
       } */
-
+    @media screen and (max-width: 1000px) {
+        .whatsapp{
+            display: none;
+        }
+  }
     </style>
 
 </head>
@@ -138,6 +142,7 @@ $result = $conn->query($sql);
                     <li><a class="smoothscroll"  href="#statistics" title="services">Statistical Data</a></li>
                     <li><a class="smoothscroll"  href="#help" title="works">Helpful Links</a></li>
                     <li><a  href="https://www.covid19india.org/" target="_blank" title="contact">More Details</a></li>
+                    <li class="whatsapp"><a  href="https://api.whatsapp.com/send?phone=919013151515&text=Namaste&source=&data=" target="_blank" title="contact">WhatsApp Queieres</a></li>
                 </ul>
 
                 <!-- <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p> -->

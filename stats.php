@@ -76,7 +76,7 @@
         for ($i=0; $i < sizeof($death); $i++) {
                     $death_counter .= ("$death[$i],");
         }
-          
+        // 30 DAYS TIME GRAPH  
          $ThirtyDaysAgo = new \DateTimeImmutable('-30 day');
 
          $query1 = "SELECT * FROM past_data WHERE date_cause >= ".$ThirtyDaysAgo->format('Y-m-d');
@@ -114,6 +114,42 @@
         $death_counter1 = "";
         for ($i=0; $i < sizeof($death1); $i++) {
                     $death_counter1 .= ("$death1[$i],");
+        }
+        //ALL-TIME DATA GRAPH  
+         $query_all = "SELECT * FROM past_data WHERE date_cause >'2020-01-30'";
+         $confirm_all = array();
+         $recover_all = array();
+         $death_all = array();
+         $all_date = array();
+         $info_all = mysqli_query($conn,$query_all);
+        while($row = mysqli_fetch_assoc($info_all)){
+             $confirmed = $row['confirmed'];
+             $recovered = $row['recovered'];
+             $deaths = $row['deaths'];
+             $date_cause = $row['date_cause'];
+             $date_cause1 = date("M-d", strtotime($date_cause));
+             array_push($all_date,$date_cause1);
+             array_push($confirm_all,$confirmed);
+             array_push($recover_all,$recovered);
+             array_push($death_all,$deaths);
+        }
+        
+        $day_counter_all = "";
+                        for ($i=0; $i < sizeof($all_date); $i++) {
+                          $day_counter_all .= ("'$all_date[$i]',");
+                        }
+        $confirm_counter_all = "";
+        for ($i=0; $i < sizeof($confirm_all); $i++) {
+                    $confirm_counter_all .= ("$confirm_all[$i],");
+        }  
+        $recover_counter_all = "";
+        for ($i=0; $i < sizeof($recover_all); $i++) {
+                    $recover_counter_all .= ("$recover_all[$i],");
+        }
+         
+        $death_counter_all = "";
+        for ($i=0; $i < sizeof($death_all); $i++) {
+                    $death_counter_all .= ("$death_all[$i],");
         }
          ?>
 
@@ -197,6 +233,46 @@
                  }
              });
              </script>
+      <canvas id="confirmedAll" width="0" height="0" style="display:none;"></canvas>
+           <script>
+               var ctx = document.getElementById('confirmedAll').getContext('2d');
+               var chart = new Chart(ctx, {
+                   // The type of chart we want to create
+                   type: 'line',
+
+                   // The data for our dataset
+                   data: {
+                       labels: [<?php echo $day_counter_all;?>],
+                       datasets: [{
+                           label: 'COVID-CONFIRMED',
+                           backgroundColor: '',
+                           borderColor: 'rgb(255,99,132)',
+                           data: [<?php echo $confirm_counter_all;?>]
+                       }]
+                   },
+
+                   // Configuration options go here
+                   options: {
+                       scales: {
+                           xAxes: [{
+                               scaleLabel: {
+                       display: true,
+                       labelString: 'ALL-DAYS'
+                     },
+                   ticks: {
+                       autoSkip: true,
+                       maxTicksLimit: 8
+                               }
+                           }]
+
+                       },
+                       title: {
+                               display: true,
+                               text: 'PATIENT CONFIRMED PRESENTATION'
+                           }
+                   }
+                });
+           </script>
 
       </div>
       <div class="card">
@@ -278,6 +354,46 @@
                           }
                       });
                       </script>
+            <canvas id="recoveredAll" width="0" height="0" style="display:none;"></canvas>
+           <script>
+               var ctx = document.getElementById('recoveredAll').getContext('2d');
+               var chart = new Chart(ctx, {
+                   // The type of chart we want to create
+                   type: 'line',
+
+                   // The data for our dataset
+                   data: {
+                       labels: [<?php echo $day_counter_all;?>],
+                       datasets: [{
+                           label: 'COVID-RECOVERED',
+                           backgroundColor: '',
+                           borderColor: 'rgb(132, 255, 132)',
+                           data: [<?php echo $recover_counter_all;?>]
+                       }]
+                   },
+
+                   // Configuration options go here
+                   options: {
+                       scales: {
+                           xAxes: [{
+                               scaleLabel: {
+                       display: true,
+                       labelString: 'ALL-DAYS'
+                     },
+                   ticks: {
+                       autoSkip: true,
+                       maxTicksLimit: 8
+                               }
+                           }]
+
+                       },
+                       title: {
+                               display: true,
+                               text: 'PATIENT RECOVERED PRESENTATION'
+                           }
+                   }
+                });
+           </script>
       </div>
       <div class="card">
           <canvas id="deaths14" width="0" height="0"></canvas>
@@ -358,18 +474,62 @@
                         }
                     });
                     </script>
+                <canvas id="deathAll" width="0" height="0" style="display:none;"></canvas>
+           <script>
+               var ctx = document.getElementById('deathAll').getContext('2d');
+               var chart = new Chart(ctx, {
+                   // The type of chart we want to create
+                   type: 'line',
+
+                   // The data for our dataset
+                   data: {
+                       labels: [<?php echo $day_counter_all;?>],
+                       datasets: [{
+                           label: 'COVID-DEATH',
+                           backgroundColor: '',
+                           borderColor: 'rgb(255, 199, 99)',
+                           data: [<?php echo $death_counter_all;?>]
+                       }]
+                   },
+
+                   // Configuration options go here
+                   options: {
+                       scales: {
+                           xAxes: [{
+                               scaleLabel: {
+                       display: true,
+                       labelString: 'ALL-DAYS'
+                     },
+                   ticks: {
+                       autoSkip: true,
+                       maxTicksLimit: 8
+                               }
+                           }]
+
+                       },
+                       title: {
+                               display: true,
+                               text: 'PATIENT DEATH PRESENTATION'
+                           }
+                   }
+                });
+           </script>
       </div>
     </div>
     <br>
 
     <script type="text/javascript">
-        $("#btn14").css({"background-color": "#f20045","color" : "white","border":"2px solid #f20045"});
+        $("#btnAll").css({"background-color": "#f20045","color" : "white","border":"2px solid #f20045"});
         function Data30Chart() {
           $("#btn30").css({"background-color": "#f20045","color" : "white","border":"2px solid #f20045"});
           $("#btn14").css({"background-color": "#B8B8B8","color" : "black","border":"2px solid #B8B8B8"});
+          $("#btnAll").css({"background-color": "#B8B8B8","color" : "black","border":"2px solid #B8B8B8"});
           $("#recovered14").hide("fast");
           $("#deaths14").hide("fast");
           $("#confirmed14").hide("fast");
+          $("#confirmedAll").hide("fast");
+          $("#recoveredAll").hide("fast");
+          $("#deathAll").hide("fast");
           $("#recovered30").show("fast");
           $("#deaths30").show("fast");
           $("#confirmed30").show("fast");
@@ -377,12 +537,30 @@
         function Data14Chart() {
           $("#btn14").css({"background-color": "#f20045","color" : "white","border":"2px solid #f20045"});
           $("#btn30").css({"background-color": "#B8B8B8","color" : "black","border":"2px solid #B8B8B8"});
+          $("#btnAll").css({"background-color": "#B8B8B8","color" : "black","border":"2px solid #B8B8B8"});
           $("#recovered30").hide("fast");
           $("#deaths30").hide("fast");
           $("#confirmed30").hide("fast");
+          $("#confirmedAll").hide("fast");
+          $("#recoveredAll").hide("fast");
+          $("#deathAll").hide("fast");
           $("#recovered14").show("fast");
           $("#deaths14").show("fast");
           $("#confirmed14").show("fast");
+        }
+        function DataAllChart(){
+          $("#btnAll").css({"background-color": "#f20045","color" : "white","border":"2px solid #f20045"});
+          $("#btn30").css({"background-color": "#B8B8B8","color" : "black","border":"2px solid #B8B8B8"});
+          $("#btn14").css({"background-color": "#B8B8B8","color" : "black","border":"2px solid #B8B8B8"});
+          $("#recovered30").hide("fast");
+          $("#deaths30").hide("fast");
+          $("#confirmed30").hide("fast");
+          $("#recovered14").hide("fast");
+          $("#deaths14").hide("fast");
+          $("#confirmed14").hide("fast");
+          $("#recoveredAll").show("fast");
+          $("#deathAll").show("fast");
+          $("#confirmedAll").show("fast");
         }
     </script>
 
