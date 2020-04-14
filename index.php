@@ -134,9 +134,9 @@ $result = $conn->query($sql);
 
                 <ul class="header-nav__list">
                     <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#about" title="about">State Data</a></li>
-                    <li><a class="smoothscroll"  href="#services" title="services">Statistical Data</a></li>
-                    <li><a class="smoothscroll"  href="#works" title="works">Helpful Links</a></li>
+                    <li><a class="smoothscroll"  href="#state" title="about">State Data</a></li>
+                    <li><a class="smoothscroll"  href="#statistics" title="services">Statistical Data</a></li>
+                    <li><a class="smoothscroll"  href="#help" title="works">Helpful Links</a></li>
                     <li><a  href="https://www.covid19india.org/" target="_blank" title="contact">More Details</a></li>
                 </ul>
 
@@ -212,7 +212,7 @@ $result = $conn->query($sql);
         </div> <!-- end home-content -->
 
         <ul class="home-sidelinks">
-            <li><a class="smoothscroll" href="#about">State Data<span>District wise included</span></a></li>
+            <li><a class="smoothscroll" href="#state">State Data<span>District wise included</span></a></li>
             <li><a  href="https://www.mohfw.gov.in/" target="_blank">More Details<span>https://www.mohfw.gov.in/</span></a></li>
             <li><a  href="#contact" target="_blank">Global Data<span>https://coronavirus.thebaselab.com/</span></a></li>
         </ul> <!-- end home-sidelinks -->
@@ -243,7 +243,7 @@ $result = $conn->query($sql);
 
     <!-- about
     ================================================== -->
-    <section id='about' class="s-about">
+    <section id='state' class="s-about">
 
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
@@ -331,7 +331,7 @@ $result = $conn->query($sql);
 
     <!-- services
     ================================================== -->
-    <section id='services' class="s-services light-gray">
+    <section id='statistics' class="s-services light-gray">
 
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
@@ -353,249 +353,27 @@ $result = $conn->query($sql);
 
     <!-- works
     ================================================== -->
-    <section id='works' class="s-works">
+    <section id='help' class="s-works">
 
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
-                <h3 class="subhead">Featured Works</h3>
-                <h1 class="display-1">These are some of our recent design projects and we are so excited to show them to you.</h1>
+                <h3 class="subhead">Helpful Links</h3>
+                <h1 class="display-1">Stay home and self-isolate from others in the household if you feel unwell</h1>
             </div>
         </div> <!-- end section-header -->
 
-        <div class="row masonry-wrap">
-            <div class="masonry">
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-lamp.jpg" class="thumb-link" title="Lamp" data-size="1050x700">
-                                <img src="images/portfolio/lamp.jpg"
-                                     srcset="images/portfolio/lamp.jpg 1x, images/portfolio/lamp@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Lamp
-                            </h3>
-                            <p class="item-folio__cat">
-                                Web Design
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div> <!-- end item-folio -->
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-salad.jpg" class="thumb-link" title="Salad" data-size="1050x700">
-                                <img src="images/portfolio/salad.jpg"
-                                     srcset="images/portfolio/salad.jpg 1x, images/portfolio/salad@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Salad
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> <!-- end item-folio -->
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" title="Woodcraft" data-size="1050x700">
-                                <img src="images/portfolio/woodcraft.jpg"
-                                     srcset="images/portfolio/woodcraft.jpg 1x, images/portfolio/woodcraft@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Woodcraft
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> <!-- end item-folio -->
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-liberty.jpg" class="thumb-link" title="Liberty" data-size="1050x700">
-                                <img src="images/portfolio/liberty.jpg"
-                                     srcset="images/portfolio/liberty.jpg 1x, images/portfolio/liberty@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Liberty
-                            </h3>
-                            <p class="item-folio__cat">
-                                Web Development
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> <!-- end item-folio -->
-                </div> <!-- end masonry__brick -->
-
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-fuji.jpg" class="thumb-link" title="Fuji" data-size="1050x700">
-                                <img src="images/portfolio/fuji.jpg"
-                                     srcset="images/portfolio/fuji.jpg 1x, images/portfolio/fuji@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Fuji
-                            </h3>
-                            <p class="item-folio__cat">
-                                Web Design
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> <!-- end item-folio -->
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" title="Shutterbug" data-size="1050x700">
-                                <img src="images/portfolio/shutterbug.jpg"
-                                     srcset="images/portfolio/shutterbug.jpg 1x, images/portfolio/shutterbug@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Lady Shutterbug
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> <!-- end item-folio -->
-                </div> <!-- end masonry__brick -->
-
-            </div> <!-- end masonry -->
-        </div> <!-- end masonry-wrap -->
-
-        <!-- <div class="testimonials-wrap" data-aos="fade-up">
-
-            <div class="row">
-                <div class="col-full testimonials-header">
-                    <h2 class="h1">What Clients Are Saying.</h2>
-                </div>
-            </div>
-
-            <div class="row testimonials">
-
-                <div class="col-full testimonials__slider">
-
-                    <div class="testimonials__slide">
-                        <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonials__avatar">
-                        <p>Qui ipsam temporibus quisquam velMaiores eos cumque distinctio nam accusantium ipsum.
-                        Laudantium quia consequatur molestias delectus culpa facere hic dolores aperiam. Accusantium quos qui praesentium corpori.</p>
-                        <div class="testimonials__author">
-                            Tim Cook
-                            <span>CEO, Apple</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonials__slide">
-                        <img src="images/avatars/user-05.jpg" alt="Author image" class="testimonials__avatar">
-                        <p>Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
-                        Nisi eaque consequatur. Quasi voluptas eius distinctio. Atque eos maxime. Qui ipsam temporibus quisquam vel.</p>
-                        <div class="testimonials__author">
-                            Sundar Pichai
-                            <span>CEO, Google</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonials__slide">
-                        <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonials__avatar">
-                        <p>Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.
-                        Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.</p>
-                        <div class="testimonials__author">
-                            Satya Nadella
-                            <span>CEO, Microsoft</span>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>  -->
+        <center><div class="row" data-aos="fade-up">
+          <p style="font-weight:bold;padding:0;margin:0;">HELPLINE NUMBERS [BY STATE]</p>
+          <p><a target="_blank" href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf" style="padding:0;margin:0;">HTTPS://WWW.MOHFW.GOV.IN/PDF/CORONVAVIRUSHELPLINENUMBER.PDF</a></p>
+          <p style="font-weight:bold;padding:0;margin:0;">WHO : COVID-19 HOME PAGE</p>
+          <p><a target="_blank" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" style="padding:0;margin:0;">HTTPS://WWW.WHO.INT/EMERGENCIES/DISEASES/NOVEL-CORONAVIRUS-2019</a></p>
+          <p style="font-weight:bold;padding:0;margin:0;">MINISTRY OF HEALTH AND FAMILY WELFARE, GOV. OF INDIA</p>
+          <p><a target="_blank" href="https://www.mohfw.gov.in/" style="padding:0;margin:0;">HTTPS://WWW.MOHFW.GOV.IN/</a></p>
+          <p style="font-weight:bold;padding:0;margin:0;">CENTERS FOR DISEASE CONTROL AND PREVENTION</p>
+          <p><a target="_blank" href="HTTPS://WWW.CDC.GOV/CORONAVIRUS/2019-NCOV/FAQ.HTML" style="padding:0;margin:0;">HTTPS://WWW.CDC.GOV/CORONAVIRUS/2019-NCOV/FAQ.HTML</a></p>
+          <p style="font-weight:bold;padding:0;margin:0;">CROWDSOURCED LIST OF RESOURCES & ESSENTIALS FROM ACROSS INDIA</p>
+          <p><a target="_blank" href="https://bit.ly/covid19resourcelist" style="padding:0;margin:0;">HTTPS://BIT.LY/COVID19RESOURCELIST</a></p>
+        </div></center>
 
     </section> <!-- end s-works -->
 
