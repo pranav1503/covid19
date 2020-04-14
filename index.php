@@ -32,6 +32,10 @@ $result = $conn->query($sql);
               $last_update_str = date("d M, H:i", $last_update);
           }
       }
+      $total_down = $total;
+      $active_down = $active;
+      $recovered_down = $recovered;
+      $deaths_down = $deaths;
       if($itotal != 0){
         $total = $total."[+".$itotal."]";
       }
@@ -130,10 +134,10 @@ $result = $conn->query($sql);
 
                 <ul class="header-nav__list">
                     <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
-                    <li><a class="smoothscroll"  href="#services" title="services">Services</a></li>
-                    <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
-                    <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+                    <li><a class="smoothscroll"  href="#about" title="about">State Data</a></li>
+                    <li><a class="smoothscroll"  href="#services" title="services">Statistical Data</a></li>
+                    <li><a class="smoothscroll"  href="#works" title="works">Helpful Links</a></li>
+                    <li><a  href="https://www.covid19india.org/" target="_blank" title="contact">More Details</a></li>
                 </ul>
 
                 <!-- <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p> -->
@@ -544,7 +548,7 @@ $result = $conn->query($sql);
             </div> <!-- end masonry -->
         </div> <!-- end masonry-wrap -->
 
-        <div class="testimonials-wrap" data-aos="fade-up">
+        <!-- <div class="testimonials-wrap" data-aos="fade-up">
 
             <div class="row">
                 <div class="col-full testimonials-header">
@@ -564,7 +568,7 @@ $result = $conn->query($sql);
                             Tim Cook
                             <span>CEO, Apple</span>
                         </div>
-                    </div> <!-- end testimonials__slide -->
+                    </div>
 
                     <div class="testimonials__slide">
                         <img src="images/avatars/user-05.jpg" alt="Author image" class="testimonials__avatar">
@@ -574,7 +578,7 @@ $result = $conn->query($sql);
                             Sundar Pichai
                             <span>CEO, Google</span>
                         </div>
-                    </div> <!-- end testimonials__slide -->
+                    </div>
 
                     <div class="testimonials__slide">
                         <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonials__avatar">
@@ -584,13 +588,13 @@ $result = $conn->query($sql);
                             Satya Nadella
                             <span>CEO, Microsoft</span>
                         </div>
-                    </div> <!-- end testimonials__slide -->
+                    </div>
 
-                </div> <!-- end testimonials__slider -->
+                </div>
 
-            </div> <!-- end testimonials -->
+            </div>
 
-        </div> <!-- end testimonials-wrap -->
+        </div>  -->
 
     </section> <!-- end s-works -->
 
@@ -602,20 +606,20 @@ $result = $conn->query($sql);
         <div class="row stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
 
             <div class="col-block stats__col ">
-                <div class="stats__count">129</div>
-                <h5>Awards Received</h5>
+                <div class="stats__count"><?php echo $total_down; ?></div>
+                <h5>Total</h5>
             </div>
             <div class="col-block stats__col">
-                <div class="stats__count">1507</div>
-                <h5>Cups of Coffee</h5>
+                <div class="stats__count"><?php echo $active_down; ?></div>
+                <h5>Active</h5>
             </div>
             <div class="col-block stats__col">
-                <div class="stats__count">108</div>
-                <h5>Projects Completed</h5>
+                <div class="stats__count"><?php echo $recovered_down; ?></div>
+                <h5>Recovered</h5>
             </div>
             <div class="col-block stats__col">
-                <div class="stats__count">103</div>
-                <h5>Happy Clients</h5>
+                <div class="stats__count"><?php echo $deaths_down; ?></div>
+                <h5>Deaths</h5>
             </div>
 
         </div> <!-- end stats -->
@@ -627,12 +631,12 @@ $result = $conn->query($sql);
     ================================================== -->
     <section id="contact" class="s-contact">
 
-        <div class="row section-header" data-aos="fade-up">
+        <!-- <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
-                <h3 class="subhead subhead--light">Contact Us</h3>
-                <h1 class="display-1 display-1--light">Get in touch and let's make something great together. Let's turn your idea on an even greater product.</h1>
+                <h3 class="subhead subhead--light">For more details</h3>
+                <h1 class="display-1 display-1--light">Visit: <a href="https://www.covid19india.org/" style="color:dodgerblue;">Covid19India.org</a> </h1>
             </div>
-        </div> <!-- end section-header -->
+        </div>
 
         <div class="row">
 
@@ -641,23 +645,22 @@ $result = $conn->query($sql);
                 <a href="mailto:#0" class="contact-email">hello@transcend-studio.com</a>
                 <span class="contact-number">+1 (917) 123 456  /  +1 (917) 333 987</span>
                 </p>
-            </div> <!-- end contact-main -->
+            </div>
 
-        </div> <!-- end row -->
+        </div> -->
 
-        <div class="row">
+       <div class="row">
 
-            <div class="col-five tab-full contact-secondary" data-aos="fade-up">
-                <h3 class="subhead subhead--light">Where To Find Us</h3>
+            <div class="col-five tab-full contact-secondary">
+                <h3 class="subhead subhead--light">Thank you for visiting</h3>
 
                 <p class="contact-address">
-                    1600 Amphitheatre Parkway<br>
-                    Mountain View, CA<br>
-                    94043 US
+                    For Global Details: <a href="https://coronavirus.thebaselab.com/" target="_blank" style="color:dodgerblue;">Click Here</a>
                 </p>
-            </div> <!-- end contact-secondary -->
+            </div>
+      </div>
 
-            <div class="col-five tab-full contact-secondary" data-aos="fade-up">
+            <!--  <div class="col-five tab-full contact-secondary" data-aos="fade-up">
                 <h3 class="subhead subhead--light">Follow Us</h3>
 
                 <ul class="contact-social">
@@ -676,7 +679,7 @@ $result = $conn->query($sql);
                     <li>
                         <a href="#0"><i class="fab fa-dribbble"></i></a>
                     </li>
-                </ul> <!-- end contact-social -->
+                </ul>
 
                 <div class="contact-subscribe">
                     <form id="mc-form" class="group mc-form" novalidate="true">
@@ -684,15 +687,15 @@ $result = $conn->query($sql);
                         <input type="submit" name="subscribe" value="Subscribe">
                         <label for="mc-email" class="subscribe-message"></label>
                     </form>
-                </div> <!-- end contact-subscribe -->
-            </div> <!-- end contact-secondary -->
+                </div>
+            </div>
 
-        </div> <!-- end row -->
+        </div>  -->
 
         <div class="row">
             <div class="col-full cl-copyright">
                 <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> and developed with passion by <a href="https://github.com/Dipropramanick1999/" style="color:white;" target="_blank">Dipro Pramanick</a> and <a href="https://github.com/pranav1503/" style="color:white;" target="_blank">Pranav S</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
             </div>
         </div>
