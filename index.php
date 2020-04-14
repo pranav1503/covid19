@@ -52,30 +52,17 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <!--- basic page needs
-    ================================================== -->
     <meta charset="utf-8">
     <title>Covid19Tracker</title>
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/main.css">
-
-    <!-- script
-    ================================================== -->
     <script src="js/modernizr.js"></script>
     <script src="js/pace.min.js"></script>
 
-    <!-- favicons
-    ================================================== -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style media="screen">
@@ -88,7 +75,6 @@ $result = $conn->query($sql);
         [class*="colmy-"] {
         float: left;
         padding: 0px;
-        /* border: 1px solid red; */
         }
 
         .colmy-1 {width: 8.33%;}
@@ -104,9 +90,6 @@ $result = $conn->query($sql);
         .colmy-11 {width: 91.66%;}
         .colmy-12 {width: 100%;}
 
-      /* .mob-state{
-        display: none;
-      } */
     @media screen and (min-width: 1000px) {
         .whatsapp{
             display: none;
@@ -118,17 +101,13 @@ $result = $conn->query($sql);
 
 <body id="top">
 
-    <!-- header
-    ================================================== -->
     <header class="s-header">
 
         <div class="header-logo">
             <a class="site-logo" href="">
                 <img src="images/logo_new.png" style="height:250px;width:250px;" alt="Homepage">
-                <!-- <h3 style="color:white;">Covid-19 Tracker</h3> -->
             </a>
-        </div> <!-- end header-logo -->
-
+        </div> 
         <nav class="header-nav">
 
             <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
@@ -144,9 +123,6 @@ $result = $conn->query($sql);
                     <li><a  href="https://www.covid19india.org/" target="_blank" title="contact">More Details</a></li>
                     <li class="whatsapp"><a  href="https://api.whatsapp.com/send?phone=919013151515&text=Namaste&source=&data=" target="_blank" title="contact">WhatsApp Queieres</a></li>
                 </ul>
-
-                <!-- <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p> -->
-
                 <ul class="header-nav__social">
                     <li>
                         <a href="#0"><i class="fab fa-facebook"></i></a>
@@ -165,19 +141,14 @@ $result = $conn->query($sql);
                     </li>
                 </ul>
 
-            </div> <!-- end header-nav__content -->
+            </div>
 
-        </nav> <!-- end header-nav -->
-
+        </nav>
         <a class="header-menu-toggle" href="#0">
             <span class="header-menu-icon"></span>
         </a>
 
-    </header> <!-- end s-header -->
-
-
-    <!-- home
-    ================================================== -->
+    </header>
     <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=top>
 
         <div class="shadow-overlay"></div>
@@ -187,7 +158,6 @@ $result = $conn->query($sql);
             <div class="row home-content__main">
                 <h1 style="color:white;">
                   Covid-19 Tracker India
-                  <!-- India -->
                 </h1>
                 <p style="font-size:20px;display:none;color:green;margin:0">
                 </p>
@@ -214,13 +184,13 @@ $result = $conn->query($sql);
                   </div>
                 </div>
 
-        </div> <!-- end home-content -->
+        </div>
 
         <ul class="home-sidelinks">
             <li><a class="smoothscroll" href="#state">State Data<span>District wise included</span></a></li>
             <li><a  href="https://www.mohfw.gov.in/" target="_blank">More Details<span>https://www.mohfw.gov.in/</span></a></li>
             <li><a  href="#contact" target="_blank">Global Data<span>https://coronavirus.thebaselab.com/</span></a></li>
-        </ul> <!-- end home-sidelinks -->
+        </ul>
 
         <ul class="home-social">
             <li class="home-social-title">Follow Us</li>
@@ -236,18 +206,12 @@ $result = $conn->query($sql);
                 <i class="fab fa-linkedin"></i>
                 <span class="home-social-text">LinkedIn</span>
             </a></li>
-        </ul> <!-- end home-social -->
-
+        </ul>
         <a href="#state" class="home-scroll smoothscroll">
             <span class="home-scroll__text">Scroll Down</span>
             <span class="home-scroll__icon"></span>
-        </a> <!-- end home-scroll -->
-
-    </section> <!-- end s-home -->
-
-
-    <!-- about
-    ================================================== -->
+        </a>
+    </section>
     <section id='state' class="s-about">
 
         <div class="row section-header" data-aos="fade-up">
@@ -275,68 +239,6 @@ $result = $conn->query($sql);
         </div>
 
     </section>
-
-    <!-- <section id='about' class="s-about">
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">Who We Are</h3>
-                <h1 class="display-1">We are a group of design driven individuals passionate about creating beautiful UI designs.</h1>
-            </div>
-        </div>
-        <div class="row" data-aos="fade-up">
-            <div class="col-full">
-                <p class="lead">
-                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="about-process process block-1-2 block-tab-full">
-                <div class="process__vline-left"></div>
-                <div class="process__vline-right"></div>
-                <div class="col-block process__col" data-item="1" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Define</h4>
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="2" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Design</h4>
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="3" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Build</h4>
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="4" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Launch</h4>
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- end s-about -->
-
-    <!-- services
-    ================================================== -->
     <section id='statistics' class="s-services light-gray">
 
         <div class="row section-header" data-aos="fade-up">
@@ -344,21 +246,13 @@ $result = $conn->query($sql);
                 <h3 class="subhead">Stats</h3>
                 <h1 class="display-1">Statistical Information</h1>
             </div>
-        </div> <!-- end section-header -->
-
-
-        <div class="row services-list block-1-3 block-m-1-2 block-tab-full" data-aos="fade-up">
-          <!-- CHARTS GOES HERE -->
+        </div>        
+         <div class="row services-list block-1-3 block-m-1-2 block-tab-full" data-aos="fade-up">
                 <?php
                     include 'stats.php';
                  ?>
-        </div> <!-- end services-list -->
-
-    </section> <!-- end s-services -->
-
-
-    <!-- works
-    ================================================== -->
+        </div>
+    </section>
     <section id='help' class="s-works">
 
         <div class="row section-header" data-aos="fade-up">
@@ -366,8 +260,7 @@ $result = $conn->query($sql);
                 <h3 class="subhead">Helpful Links</h3>
                 <h1 class="display-1">Stay home and self-isolate from others in the household if you feel unwell</h1>
             </div>
-        </div> <!-- end section-header -->
-
+        </div>
         <center><div class="row" data-aos="fade-up">
           <p style="font-weight:bold;padding:0;margin:0;">HELPLINE NUMBERS [BY STATE]</p>
           <p><a target="_blank" href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf" style="padding:0;margin:0;">HTTPS://WWW.MOHFW.GOV.IN/PDF/CORONVAVIRUSHELPLINENUMBER.PDF</a></p>
@@ -381,11 +274,7 @@ $result = $conn->query($sql);
           <p><a target="_blank" href="https://bit.ly/covid19resourcelist" style="padding:0;margin:0;">HTTPS://BIT.LY/COVID19RESOURCELIST</a></p>
         </div></center>
 
-    </section> <!-- end s-works -->
-
-
-    <!-- stats
-    ================================================== -->
+    </section>
     <section id="stats" class="s-stats">
 
         <div class="row stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
@@ -407,32 +296,10 @@ $result = $conn->query($sql);
                 <h5>Deaths</h5>
             </div>
 
-        </div> <!-- end stats -->
-
-    </section> <!-- end s-stats -->
-
-
-    <!-- contact
-    ================================================== -->
-    <section id="contact" class="s-contact">
-
-        <!-- <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead subhead--light">For more details</h3>
-                <h1 class="display-1 display-1--light">Visit: <a href="https://www.covid19india.org/" style="color:dodgerblue;">Covid19India.org</a> </h1>
-            </div>
         </div>
+    </section>
 
-        <div class="row">
-
-            <div class="col-full contact-main" data-aos="fade-up">
-                <p>
-                <a href="mailto:#0" class="contact-email">hello@transcend-studio.com</a>
-                <span class="contact-number">+1 (917) 123 456  /  +1 (917) 333 987</span>
-                </p>
-            </div>
-
-        </div> -->
+    <section id="contact" class="s-contact">
 
        <div class="row">
 
@@ -445,44 +312,12 @@ $result = $conn->query($sql);
             </div>
       </div>
 
-            <!--  <div class="col-five tab-full contact-secondary" data-aos="fade-up">
-                <h3 class="subhead subhead--light">Follow Us</h3>
-
-                <ul class="contact-social">
-                    <li>
-                        <a href="#0"><i class="fab fa-facebook"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fab fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fab fa-behance"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fab fa-dribbble"></i></a>
-                    </li>
-                </ul>
-
-                <div class="contact-subscribe">
-                    <form id="mc-form" class="group mc-form" novalidate="true">
-                        <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
-                        <input type="submit" name="subscribe" value="Subscribe">
-                        <label for="mc-email" class="subscribe-message"></label>
-                    </form>
-                </div>
-            </div>
-
-        </div>  -->
-
         <div class="row">
             <div class="col-full cl-copyright">
-                <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <span>
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> and developed with passion by <a href="https://github.com/Dipropramanick1999/" style="color:white;" target="_blank">Dipro Pramanick</a> and <a href="https://github.com/pranav1503/" style="color:white;" target="_blank">Pranav S</a>
     <p>Developed as a part of <a href="https://sites.google.com/cmrit.ac.in/mozietyclub" style="color:white;" target="_blank">Moziety</a></p>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+                    </span>
             </div>
         </div>
 
@@ -490,12 +325,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
         </div>
 
-    </section> <!-- end s-contact -->
-
-
-    <!-- photoswipe background
-    ================================================== -->
-    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+    </section> 
+           <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
 
         <div class="pswp__bg"></div>
         <div class="pswp__scroll-wrap">
@@ -530,19 +361,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
         </div>
 
-    </div> <!-- end photoSwipe background -->
-
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
+    </div>
+           <div id="preloader">
         <div id="loader">
         </div>
     </div>
-
-
-    <!-- Java Script
-    ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
