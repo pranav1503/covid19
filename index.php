@@ -212,9 +212,9 @@ $result = $conn->query($sql);
         </div> <!-- end home-content -->
 
         <ul class="home-sidelinks">
-            <li><a class="smoothscroll" href="#about">About<span>who we are</span></a></li>
-            <li><a class="smoothscroll" href="#services">Services<span>what we do</span></a></li>
-            <li><a  class="smoothscroll" href="#contact">Contact<span>get in touch</span></a></li>
+            <li><a class="smoothscroll" href="#about">State Data<span>District wise included</span></a></li>
+            <li><a  href="https://www.mohfw.gov.in/" target="_blank">More Details<span>https://www.mohfw.gov.in/</span></a></li>
+            <li><a  href="#contact" target="_blank">Global Data<span>https://coronavirus.thebaselab.com/</span></a></li>
         </ul> <!-- end home-sidelinks -->
 
         <ul class="home-social">
@@ -247,6 +247,7 @@ $result = $conn->query($sql);
 
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
+                <p>The data provided and compiled by <a href="https://www.covid19india.org/" style="color:dodgerblue;">Covid19India</a> using state bulletins and official handles to update the numbers. The data is validated by a group of volunteers and published into a Google sheet and an API.</p>
                 <h3 class="subhead">States and Union Territories</h3>
             </div>
         </div>
